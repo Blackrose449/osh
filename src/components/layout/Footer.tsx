@@ -116,9 +116,9 @@ export const Footer = () => {
                 <span className="text-gray-400 text-sm">Nairobi, Kenya</span>
               </li>
               <li>
-                <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-400 hover:text-primary-green transition-colors text-sm">
+                <a href="tel:+254 142 668 226" className="flex items-center gap-3 text-gray-400 hover:text-primary-green transition-colors text-sm">
                   <Phone className="w-5 h-5" />
-                  +254 700 000 000
+                  +254 142 668 226
                 </a>
               </li>
               <li>
