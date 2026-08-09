@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play, MessageCircle, Shield, TrendingUp, Users, Award } from 'lucide-react';
 
 const stats = [
-  { value: '24+', label: 'Enterprise Clients', icon: Users },
+  { value: '240+', label: 'Organizations', icon: Users },
   { value: '100%', label: 'DOSHS Aligned', icon: Award },
   { value: '10+', label: 'Years Experience', icon: TrendingUp },
   { value: '94%', label: 'Compliance Score', icon: Shield },
