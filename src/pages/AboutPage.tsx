@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Users, Award, Target, Heart, CheckCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { SITE_STATS } from '../data/siteStats';
 
 export const AboutPage = () => {
   const values = [
@@ -18,6 +19,7 @@ export const AboutPage = () => {
     { year: '2018', event: 'Launched comprehensive safety training programs' },
     { year: '2020', event: 'Implemented digital safety management systems' },
     { year: '2024', event: 'Serving 100+ organizations across Kenya' },
+    { year: '2026', event: `Serving ${SITE_STATS.ORGANIZATIONS} organizations across ${SITE_STATS.WORKPLACES} workplaces` },
   ];
 
   const handleWhatsAppClick = () => {
@@ -164,7 +166,7 @@ export const AboutPage = () => {
             Partner with Kenya's Safety Experts
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join 24+ leading organizations that trust LOTAN for their safety needs
+            Join {SITE_STATS.ORGANIZATIONS} leading organizations that trust LOTAN for their safety needs
           </p>
           <Button onClick={handleWhatsAppClick} size="lg">
             Get Started Today
