@@ -18,6 +18,8 @@ const serviceLinks = [
   'Industrial Inspections',
   'Fire Safety Audits',
   'Safety Training',
+  'WIBA Processing',
+  'EHS Officer Outsourcing',
 ];
 
 export const Footer = () => {
