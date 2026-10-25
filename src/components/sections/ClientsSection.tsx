@@ -2,33 +2,12 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css';
+import { SITE_STATS } from '../../data/siteStats';
+import { clients } from '../../data/clients';
 
-const clients = [
-  'Mwalimu National Sacco Ltd',
-  'Royal Nairobi Golf Club',
-  'Kenyatta National Hospital',
-  'Kipeto Wind Farm',
-  'Bimas Kenya Limited',
-  'Electricom Solutions Limited',
-  'Tradco Services Limited',
-  'Insurance Regulatory Authority (IRA)',
-  'MUKI Sacco',
-  'Tugende Limited',
-  'Crawford International School',
-  'CIPLA Kenya',
-  'Nairobi Securities Exchange',
-  'African Economic Research Consortium',
-  'MEDS Centre',
-  'Harambee Sacco',
-  'NKG Coffee Mills',
-  'Novel Paints',
-  'GDC Sacco Ltd',
-  'Marie Stopes Kisumu Clinic',
-  'Baraza Media Lab',
-  'Toptouch Marketing Limited',
-  'Upeo Safety Solutions',
-  'Kenyatta University Teaching Referral and Research Hospital',
-];
+const half = Math.ceil(clients.length / 2);
+const rows = [clients.slice(0, half), clients.slice(half)];
+
 
 export const ClientsSection = () => {
   return (
@@ -44,39 +23,43 @@ export const ClientsSection = () => {
             Trusted by Leading Organizations
           </h2>
           <p className="text-gray-600 text-lg">
-            Partnering with enterprises across diverse industries in Kenya
+            Serving {SITE_STATS.ORGANIZATIONS} organizations across {SITE_STATS.WORKPLACES} workplaces in Kenya
           </p>
         </motion.div>
       </div>
 
-      <div className="relative">
-        <Swiper
-          modules={[Autoplay, FreeMode]}
-          spaceBetween={30}
-          slidesPerView="auto"
-          freeMode={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          speed={3000}
-          loop={true}
-          className="w-full"
-        >
-          {[...clients, ...clients].map((client, index) => (
-            <SwiperSlide key={index} className="!w-auto">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="px-8 py-4 bg-gray-50 rounded-lg border border-gray-100 min-w-[250px] flex items-center justify-center group cursor-pointer"
-              >
-                <p className="text-sm font-medium text-gray-400 group-hover:text-primary-navy transition-colors">
-                  {client}
-                </p>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="relative space-y-4">
+        {rows.map((row, rowIndex) => (
+          <Swiper
+            key={rowIndex}
+            modules={[Autoplay, FreeMode]}
+            spaceBetween={30}
+            slidesPerView="auto"
+            freeMode={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+              reverseDirection: rowIndex === 1,
+            }}
+            speed={rowIndex === 0 ? 60000 : 70000}
+            loop={true}
+            className="w-full"
+          >
+            {[...row, ...row].map((client, index) => (
+              <SwiperSlide key={index} className="!w-auto">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="px-8 py-4 bg-gray-50 rounded-lg border border-gray-100 min-w-[250px] flex items-center justify-center group cursor-pointer"
+                >
+                  <p className="text-sm font-medium text-gray-400 group-hover:text-primary-navy transition-colors">
+                    {client}
+                  </p>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ))}
       </div>
     </section>
   );
