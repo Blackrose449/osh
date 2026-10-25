@@ -117,6 +117,8 @@ export const ContactSection = () => {
                     <option value="Industrial Inspections">Industrial Inspections</option>
                     <option value="Fire Safety Audits">Fire Safety Audits</option>
                     <option value="Safety Training">Safety Training</option>
+                    <option value="WIBA Processing">WIBA Processing</option>
+                    <option value="EHS Officer Outsourcing">EHS Officer Outsourcing</option>
                   </select>
                 </div>
 
