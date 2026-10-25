@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
+import { SITE_STATS } from '../../data/siteStats';
 import { ArrowRight, Play, MessageCircle, Shield, TrendingUp, Users, Award } from 'lucide-react';
 
 const stats = [
-  { value: '240+', label: 'Organizations', icon: Users },
+  { value: SITE_STATS.ORGANIZATIONS, label: 'Organizations', icon: Users },
   { value: '100%', label: 'DOSHS Aligned', icon: Award },
   { value: '10+', label: 'Years Experience', icon: TrendingUp },
-  { value: '94%', label: 'Compliance Score', icon: Shield },
+  { value: SITE_STATS.REPORTS, label: 'Audits & Risk Assessments', icon: Shield },
 ];
 
 export const HeroSection = () => {
@@ -81,7 +82,7 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm mb-6"
             >
               <Shield className="w-4 h-4" />
-              Trusted by 24+ Enterprise Organizations
+              Trusted by {SITE_STATS.ORGANIZATIONS} Organizations · {SITE_STATS.WORKPLACES} Workplaces
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sora leading-tight mb-6">
