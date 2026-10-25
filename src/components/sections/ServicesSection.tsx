@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Search, FileText, Factory, Flame, GraduationCap, Settings, AlertTriangle, Droplets, FileCheck } from 'lucide-react';
+import { Shield, Search, FileText, Factory, Flame, GraduationCap, Settings, AlertTriangle, Droplets, FileCheck, HeartPulse, UserCheck } from 'lucide-react';
 
 const services = [
   {
@@ -62,6 +62,18 @@ const services = [
     description: 'Development of comprehensive safety policies aligned with industry best practices.',
     color: 'from-emerald-500 to-emerald-600',
   },
+  {
+    icon: HeartPulse,
+    title: 'WIBA Processing',
+    description: 'End-to-end support with the Work Injury Benefits Act process: accident reporting, claim documentation and follow-up with DOSHS.',
+    color: 'from-rose-500 to-rose-600',
+  },
+  {
+    icon: UserCheck,
+    title: 'EHS Officer Outsourcing',
+    description: 'Qualified environmental, health and safety officers placed at your site, so you get dedicated cover without a full-time hire.',
+    color: 'from-sky-500 to-sky-600',
+  },
 ];
 
 export const ServicesSection = () => {
@@ -102,7 +114,7 @@ export const ServicesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
