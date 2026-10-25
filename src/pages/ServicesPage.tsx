@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Search, FileText, Factory, Flame, GraduationCap, Settings, AlertTriangle, Droplets, FileCheck, MessageCircle } from 'lucide-react';
+import { Shield, Search, FileText, Factory, Flame, GraduationCap, Settings, AlertTriangle, Droplets, FileCheck, MessageCircle, HeartPulse, UserCheck } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 const services = [
@@ -63,6 +63,26 @@ const services = [
     description: 'Development of comprehensive safety policies aligned with industry best practices.',
     features: ['Policy drafting', 'Procedure development', 'Implementation guide', 'Training', 'Review schedule'],
   },
+  {
+    icon: HeartPulse,
+    title: 'WIBA Processing',
+    description: 'We guide employers through the Work Injury Benefits Act process, from reporting an accident to following up the claim with DOSHS.',
+    features: ['Accident notification (DOSH 1)', 'Claim documentation', 'DOSHS follow-up', 'Employer WIBA compliance', 'Payment certificate tracking'],
+  },
+  {
+    icon: UserCheck,
+    title: 'EHS Officer Outsourcing',
+    description: 'Qualified environmental, health and safety officers placed at your site on a contract basis, managed and supported by LOTAN.',
+    features: ['Site-based EHS officers', 'Short or long-term contracts', 'Inspections & reporting', 'Toolbox talks & induction', 'Compliance follow-up'],
+  },
+];
+
+const wibaSteps = [
+  { title: 'Report the accident', description: 'The employer notifies the DOSHS county office using the DOSH 1 form: within 24 hours for a fatal accident and within 7 days otherwise.' },
+  { title: 'Investigation', description: 'A DOSHS county officer visits the workplace and records the nature, cause and impact of the accident.' },
+  { title: 'Claim and assessment', description: 'The claim is prepared and submitted, and DOSHS assesses the injury and the compensation due.' },
+  { title: 'Settlement', description: 'The employer or its WIBA insurer pays the award. DOSHS does not settle claims itself.' },
+  { title: 'Payment certificate', description: 'Once payment is confirmed, DOSHS issues the payment certificate and the file is closed.' },
 ];
 
 export const ServicesPage = () => {
@@ -122,6 +142,38 @@ export const ServicesPage = () => {
                     </ul>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WIBA Process */}
+      <section className="py-20 bg-bg-main">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-navy font-sora mb-4">
+              The WIBA Process
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              How a work injury claim moves under the Work Injury Benefits Act, and where LOTAN supports you
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {wibaSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-navy to-primary-green text-white flex items-center justify-center font-bold mb-4">
+                  {index + 1}
+                </div>
+                <h3 className="text-lg font-semibold text-primary-navy font-sora mb-2">{step.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
